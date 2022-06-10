@@ -1,24 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
 
     <title>Speech color changer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <h1>Speech color changer</h1>
+    <h1 class="text-center text-3xl font-bold">
+      Speech recogniztion color changer
+    </h1>
 
     <p class="hints"></p>
-    <div>
-        <p class="output"><em>...diagnostic messages</em></p>
+
+    <div
+      class="chip-of-colors chip-of-colors gap-3 grid grid-cols-7 mx-auto w-2/3"
+    ></div>
+
+    <div class="button-container flex justify-center my-10">
+      <button
+        class="bg-indigo-300 click-me duration-500 ease-out hover:ease-in hover:shadow-lg px-10 py-3 rounded-md shadow-md text-3xl text-indigo-800 transition-all"
+      >
+        Click Me
+      </button>
+    </div>
+
+    <div class="bg-indigo-800 text-indigo-300 text-center">
+      <p class="output text-2xl"><em>Please say something :)</em></p>
+      <small class="text-xs text-indigo-400 confidence-text"></small>
+    </div>
+
+    <div class="debug-info w-full mt-400 bg-black text-green-400 font-mono">
+      <pre class="debug-result"></pre>
     </div>
 
     <script src="script.js"></script>
