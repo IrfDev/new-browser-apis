@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Speech synthesiser</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
 
   <body>
-    <h1>Speech synthesiser</h1>
+    <h1 class="text-3xl text-gray-800 font-bold">Speech synth</h1>
 
-    <p>Enter some text in the input below and press return  or the "play" button to hear it. change voices using the dropdown menu.</p>
-    
-    <form>
-    <input type="text" class="txt">
-    <div>
-      <label for="rate">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
-      <div class="rate-value">1</div>
-      <div class="clearfix"></div>
-    </div>
-    <div>
-      <label for="pitch">Pitch</label><input type="range" min="0" max="2" value="1" step="0.1" id="pitch">
-      <div class="pitch-value">1</div>
-      <div class="clearfix"></div>
-    </div>
-    <select>
+    <p>
+      Fill the following input and then click/tap play :)
+    </p>
 
-    </select>
-    <div class="controls">
-      <button id="play" type="submit">Play</button>
-    </div>
+    <form class="w-2/3 mx-auto">
+      <input type="text" class="txt border-2 border-gray-300 rounded-md" />
+      <div>
+        <label for="rate">Rate</label
+        ><input
+          type="range"
+          min="0.5"
+          max="2"
+          value="1"
+          step="0.1"
+          id="rate"
+          class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+        />
+        <div class="rate-value">1</div>
+        <div class="clearfix"></div>
+      </div>
+      <div>
+        <label for="pitch">Pitch</label
+        ><input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          id="pitch"
+          class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+        />
+        <div class="pitch-value">1</div>
+        <div class="clearfix"></div>
+      </div>
+      <select
+        class="block border border-gray-300 focus:border-blue-500 focus:ring-blue-500 mx-auto p-2.5 rounded-lg text-gray-900 text-sm w-2/3"
+      >
+      </select>
+      <div class="controls">
+        <button
+          id="play"
+          type="submit"
+          class="bg-indigo-300 px-10 py-2 rounded-lg text-indigo-800 text-lg"
+        >
+          Play
+        </button>
+      </div>
     </form>
 
     <script src="script.js"></script>

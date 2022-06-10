@@ -12,13 +12,13 @@ const rateValue = document.querySelector(".rate-value");
 let voices = [];
 
 function populateVoiceList() {
-  voices = synth.getVoices().sort(function (a, b) {
-    const aname = a.name.toUpperCase();
-    const bname = b.name.toUpperCase();
+  voices = synth.getVoices().sort(function(a, b) {
+    const aName = a.name.toUpperCase();
+    const bName = b.name.toUpperCase();
 
-    if (aname < bname) {
+    if (aName < bName) {
       return -1;
-    } else if (aname == bname) {
+    } else if (aName == bName) {
       return 0;
     } else {
       return +1;
@@ -30,6 +30,7 @@ function populateVoiceList() {
 
   for (let i = 0; i < voices.length; i++) {
     const option = document.createElement("option");
+
     option.textContent = `${voices[i].name} (${voices[i].lang})`;
 
     if (voices[i].default) {
@@ -58,16 +59,17 @@ function speak() {
   if (inputTxt.value !== "") {
     const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
 
-    utterThis.onend = function (event) {
+    utterThis.onend = function(event) {
       console.log("SpeechSynthesisUtterance.onend");
     };
 
-    utterThis.onerror = function (event) {
+    utterThis.onerror = function(event) {
       console.error("SpeechSynthesisUtterance.onerror");
     };
 
-    const selectedOption =
-      voiceSelect.selectedOptions[0].getAttribute("data-name");
+    const selectedOption = voiceSelect.selectedOptions[0].getAttribute(
+      "data-name"
+    );
 
     for (let i = 0; i < voices.length; i++) {
       if (voices[i].name === selectedOption) {
@@ -81,7 +83,7 @@ function speak() {
   }
 }
 
-inputForm.onsubmit = function (event) {
+inputForm.onsubmit = function(event) {
   event.preventDefault();
 
   speak();
@@ -89,14 +91,14 @@ inputForm.onsubmit = function (event) {
   inputTxt.blur();
 };
 
-pitch.onchange = function () {
+pitch.onchange = function() {
   pitchValue.textContent = pitch.value;
 };
 
-rate.onchange = function () {
+rate.onchange = function() {
   rateValue.textContent = rate.value;
 };
 
-voiceSelect.onchange = function () {
+voiceSelect.onchange = function() {
   speak();
 };
